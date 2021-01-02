@@ -1,0 +1,19 @@
+- package :
+                  name : "{{ software_name }}"
+                  state : present
+
+- template :
+                  src : "index.php"
+                  dest : "/var/www/html/index.php"
+  ignore_errors : true
+ 
+- service :
+                  name : "{{ service }}"
+                  state : started
+                  enabled : yes
+  ignore_errors : true
+- firewalld :
+                  port : "80/tcp"
+                  state : enabled
+                  permanent : yes
+                  immediate : yes

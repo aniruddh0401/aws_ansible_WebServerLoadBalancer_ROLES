@@ -1,0 +1,3 @@
+- hosts : backend_server
+  roles :
+          - role : "apache"

@@ -1,0 +1,8 @@
+---
+# vars file for apache
+
+
+software_name: 
+  - 'httpd'
+  - 'php'
+service : 'httpd'

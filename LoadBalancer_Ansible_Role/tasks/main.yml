@@ -1,0 +1,22 @@
+---
+# tasks file for lb
+
+- package :
+                  name : "{{ software }}"
+                  state : present
+
+- template :
+                  dest : "/etc/haproxy/haproxy.cfg"
+                  src : "/etc/haproxy/haproxy.cfg"
+
+- service :
+                  name : "{{ service }}"
+                  state : restarted
+- name: permit traffic on the port 5000
+  ansible.posix.firewalld:
+                  port : "5000/tcp"
+                  state : enabled
+                  immediate : yes
+                  permanent : yes
+  ignore_errors : true
+
